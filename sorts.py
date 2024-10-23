@@ -38,7 +38,7 @@ def merge(left , right) -> list :
     merged.extend(right[j:])
     return merged
     
-def hybrid_sort(arr: list, k: int = int(input('Enter your k: '))) -> list:
+def hybrid_sort(arr: list, k: int = 100) -> list:
     '''m@hdi say : you can chane the k...'''
     if len(arr) <= k:
         return insertion_sort(arr)
