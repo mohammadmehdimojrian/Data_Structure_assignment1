@@ -1,6 +1,6 @@
 import random
 import time
-
+import copy
 def insertion_sort(arr:list) -> list :
     for i in range(1,len(arr)) :
         key = arr[i]
@@ -39,7 +39,6 @@ def merge(left , right) -> list :
     return merged
     
 def hybrid_sort(arr: list, k: int = 100) -> list:
-    '''m@hdi say : you can chane the k...'''
     if len(arr) <= k:
         return insertion_sort(arr)
     else:
@@ -50,7 +49,9 @@ def hybrid_sort(arr: list, k: int = 100) -> list:
     
 if __name__ == '__main__' :
     print('             ////////////////InsertationSort////////////////             ')
-    sample_list = [random.randint(1,300) for _ in range(100)]
+    sample_list = [random.randint(1,300) for _ in range(120)]
+    sample_list2= copy.copy(sample_list)
+    sample_list3 = copy.copy(sample_list)
     print(sample_list)
     start_time_insertion = time.time()
     insertion_sort_result = insertion_sort(sample_list)
@@ -60,9 +61,9 @@ if __name__ == '__main__' :
     print()
     
     print('             ////////////////MergeSort////////////////               ')
-    print(sample_list)
+    print(sample_list2)
     start_time_merge = time.time()
-    merge_sort_result = merge_sort(sample_list)
+    merge_sort_result = merge_sort(sample_list2)
     end_time_merge = time.time() - start_time_merge
     print(merge_sort_result)
     print(f'merge_sort_time : {end_time_merge}')
@@ -70,9 +71,9 @@ if __name__ == '__main__' :
     
 
     print('             ////////////////HybridSort////////////////              ')
-    print(sample_list)
+    print(sample_list3)
     start_hybrid_time = time.time()
-    hybrid_sort_result = hybrid_sort(sample_list)
+    hybrid_sort_result = hybrid_sort(sample_list3 , 10)
     end_time_hybrid = time.time() - start_hybrid_time
     print(hybrid_sort_result)
     print(f'hybrid_sort_time : {end_time_hybrid}')
